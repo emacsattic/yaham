@@ -1,0 +1,49 @@
+$Id: README 81 2007-06-10 13:23:29Z itz $
+
+This is Yaham, Yet Another HAskell Mode for GNU Emacs.
+
+It has a different focus than the Moss haskell-mode that's normally used
+nowadays.  Yaham strives, first and foremost, to integrate well with the
+rest of Emacs and respect the Emacs ecosystem.  This is because I still
+use languages different from Haskell --- python, shell, Makefiles, even
+C ...) and see no end to this predicament.
+
+To my knowledge, Yaham completely and correctly handles all of Haskell's
+unusual lexical syntax - both line and nested comments, overloading
+of single quote and backslash, strings including gaps.  There should be
+no runaway string or comment highlighting or broken cursor movement
+across these elements.  If you find a broken case, please report it to
+the address below including the relevant piece of Haskell.
+
+Things that are still missing but are high priority to add:
+* specialization for GHC (one for Hugs is included)
+* texinfo documentation (for now, please explore the menus and keybindings)
+* installation script (perhaps a makefile)
+
+Things that are very low priority (i.e. probably won't be added):
+* Bird style literate source handling
+* XEmacs compatibility kludges
+
+To use or try it, 
+
+* download http://primate.net/~itz/yaham/yaham.tar.gz
+* unpack
+* read the LICENSE (yes, please do)
+* copy *.el files to your local Elisp directory
+* optionally, byte-compile
+* add the following to your Emacs initialization
+
+(load-library "yaham-autoloads")
+
+(add-to-list 'auto-mode-alist '("\\.hs\\'" . yaham-mode))
+
+;; or if you have Hugs, you can do this:
+;; (add-to-list 'auto-mode-alist '("\\.hs\\'" . yaham-hugs-mode))
+
+Send all problem reports and patches to me (Ian Zimmerman) at
+yaham@madbat.mine.nu
+
+P.S.  If you want to hack on it, let me know and I'll consider giving
+you access to the Subversion repo.
+
+Peace, Ian.
